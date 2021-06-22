@@ -32,7 +32,7 @@ public class EasyLifeTask {
         }
     }
 
-    @Scheduled(cron = "")
+
     public void deleteToken(){
      List<VerificationToken> tokens = tokenRepository.findByValableIsFalse();
      for (VerificationToken token : tokens){

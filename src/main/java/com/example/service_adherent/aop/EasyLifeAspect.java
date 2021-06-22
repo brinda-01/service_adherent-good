@@ -20,7 +20,7 @@ public class EasyLifeAspect {
     @Pointcut("execution(* com.example.service_adherent.service.adherent.AdherentService.addAdherent(..))")
     private void addAdherent(){}
 
-    @AfterReturning(value = "addAdherent()",returning ="pere" )
+    @AfterReturning(value = "addAdherent()", returning = "pere")
     public void afterAddAdherent(String pere){
 
         if (pere.isEmpty()) throw new RuntimeException("pere absent");

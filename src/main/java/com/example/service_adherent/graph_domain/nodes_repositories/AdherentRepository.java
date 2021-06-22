@@ -7,9 +7,11 @@ import org.springframework.data.neo4j.repository.query.Query;
 
 public interface AdherentRepository extends Neo4jRepository<Adherent,String> {
 
-    //Adherent findByIdAdherent(String id);
+    Adherent findByIdAdherent(String id);
 
     Adherent findByCompte(String compte);
+
+
 
 
 }
