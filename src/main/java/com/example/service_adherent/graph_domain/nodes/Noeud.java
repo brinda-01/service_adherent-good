@@ -29,12 +29,15 @@ public class Noeud {
     @Relationship(value = "represente",direction = Relationship.Direction.OUTGOING)
     private Adherent adherent;
 
+    private Boolean actif;
+
+    private int bonusP;
+
+    private int bonusMat;
 
 
 
 
 
 
-
- 
 }

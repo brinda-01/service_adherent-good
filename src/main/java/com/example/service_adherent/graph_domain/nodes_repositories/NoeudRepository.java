@@ -12,6 +12,7 @@ public interface NoeudRepository extends Neo4jRepository<Noeud,String> {
 
         Noeud findByAdherentAndArbre(Adherent adherent, Arbre arbre);
 
+        Noeud findByAdherentAndActifIsTrue(Adherent adherent);
 
 
 
