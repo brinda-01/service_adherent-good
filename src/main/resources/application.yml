@@ -1,0 +1,38 @@
+server:
+  port: 0
+
+spring:
+  application:
+    name: adherent-service
+  devtools:
+    restart:
+      enabled: true
+  neo4j:
+    uri: neo4j://localhost:7687
+    authentication:
+      username: neo4j
+      password: easylife
+  data:
+    neo4j:
+      database: dbtest
+  mail:
+    default-encoding: utf-8
+    host: smtp.gmail.com
+    port: 587
+    username: system.easylife@gmail.com
+    password: life@2021
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+
+
+
+eureka:
+  client:
+    service-url:
+      defaultZone : http://localhost:8671/eureka
+  instance:
+    prefer-ip-address: true

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+      body {
+        width: 100% !important;
+        -webkit-text;
+        size-adjust: 100%;
+        -ms-text-size-adjust: 100%;
+        margin: 0;
+        padding: 0;
+      }
+      table td {
+        border-collapse: collapse;
+      }
+
+    </style>
+</head>
+<<body>
+
+
+
+<div style="background-color: #282E4B; font-family: 'helevtica neue', 'helvetica', 'arial', sans-serif; font-size: 16px; color: #4A525E;">
+
+  <center style="padding-bottom: 32px;">
+    <!-- Email Header -->
+    <table cellspacing="16" cellpadding="0">
+      <tbody>
+        <tr align="middle">
+          <td>
+            <img alt="Bennie" height="24" src="https://storage.cloud.google.com/bennie-static-stg/bennie-web/common_assets/bennie_logo_white.png">
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <!-- End Email Header -->
+    <!-- Email Container -->
+    <table border="0" cellspacing="32" cellpadding="0" bgcolor="white" width="100%" style="max-width: 680px;" class="100p">
+      <tbody>
+        <tr>
+          <td align="center">
+            <div style="font-weight: bold; font-size: 24px; color: #282E4B; text-align: center; line-height: 32px; margin-bottom: 8px;">
+              Bienvenue sur EASY Life
+            </div>
+            <div style="line-height: 24px;"> <strong>cliquer sur ce lien pour debuter votre inscription:</strong></div>
+
+            <!-- CTA -->
+            <div style="margin: 16px 0;">
+              <a id="main-cta" style="display: block; width: 280px; height: 64px; line-height: 64px; border: none; text-align: center; cursor: pointer; color: white; border-radius: 4px; background-color: #276df6;text-decoration: none;" th:href="@{http://192.168.100.120:8084/adherent-service/activate/verification(sign=${sign})}"> <span style="color: white; font-weight: bold;">s'inscrire</span></a>
+            </div>
+            <div style="font-size: 14px; color: #FF8A23; text-align: center; line-height: 24px;">
+              ce lien n'est valable que 24h
+            </div>
+            <!-- CTA -->
+          </td>
+        </tr>
+
+        <!-- Psst Try out the Bennie Mobile Apps -->
+
+      </tbody>
+    </table>
+    <!-- End Email Container -->
+
+    <!-- Begin: Mobile App Buttons -->
+
+
+  </center>
+</div>
+
+</body>
+</html>
