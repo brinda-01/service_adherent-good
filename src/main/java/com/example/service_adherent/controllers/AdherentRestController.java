@@ -15,9 +15,7 @@ public class AdherentRestController {
 
     private final AdherentService adherentService;
 
-    public AdherentRestController(AdherentService adherentService) {
-        this.adherentService = adherentService;
-    }
+    public AdherentRestController(AdherentService adherentService) { this.adherentService = adherentService; }
 
     @PostMapping("/create")
     public ResponseEntity creerAdherent (@RequestBody AdherentDto adherentDto){

@@ -31,9 +31,9 @@ public class Noeud {
 
     private Boolean actif;
 
-    private int bonusP;
+    private int bonusP=0;
 
-    private int bonusMat;
+    private int bonusMat =0;
 
 
 

@@ -28,19 +28,18 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-             /*   noeudRepository.deleteById("35aa76b4-88d0-45e7-ab35-0ebeb6a176a0");
-                tokenRepository.deleteAll();*/
+        System.out.println(noeudRepository.findByIdNoeud("490c0b82-9fa7-4780-ab0b-bbfff75b1386"));
 
 
 
 
-        /*Noeud noeud = new Noeud();
+       /* Noeud noeud = new Noeud();
         noeud.setPere(null);
         noeud.setAdherent(adherentRepository.findAll().get(0));
         noeud.setArbre(arbreRepository.findByNiveau(1));
         noeudRepository.save(noeud);
+*/
 
-        noeudRepository.deleteById("01bd279a-3dbe-49f1-a1d5-e35f235954f3");*/
 
 
 

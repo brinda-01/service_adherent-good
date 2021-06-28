@@ -10,5 +10,6 @@ public interface TreeConsctruction {
 
     String parcoursPrefixe(Noeud noeud);
 
+    List<Noeud> feuilles(Noeud noeud);
 
 }

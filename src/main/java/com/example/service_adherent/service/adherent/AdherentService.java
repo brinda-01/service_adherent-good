@@ -9,7 +9,7 @@ import java.util.Map;
 
 public interface AdherentService {
 
-    void addAdherent(AdherentDto adherentDto);
+    String addAdherent(AdherentDto adherentDto);
 
     Adherent searchAdherent(String compte);
 

@@ -1,6 +1,5 @@
 server:
   port: 0
-
 spring:
   application:
     name: adherent-service
@@ -27,9 +26,6 @@ spring:
           auth: true
           starttls:
             enable: true
-
-
-
 eureka:
   client:
     service-url:

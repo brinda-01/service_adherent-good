@@ -12,7 +12,6 @@ import org.springframework.web.servlet.view.RedirectView;
 @RestController
 @RequiredArgsConstructor
 @RequestMapping("/activate")
-@CrossOrigin
 public class ProspectRestController {
 
     private final ProspectService adherentService;

@@ -59,4 +59,19 @@ public class TreeConstructionImpl implements TreeConsctruction{
         return null;
     }
 
+    @Override
+    public List<Noeud> feuilles(Noeud noeud) {
+
+        if (noeud.getGauche() !=  null){
+
+            
+
+        }
+        if (noeud.getDroit()!=null){
+
+
+        }
+        return null;
+    }
+
 }

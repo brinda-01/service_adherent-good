@@ -19,6 +19,7 @@ public class Arbre {
 
         private Level nom;
 
+        private String lastInserted;
 
 
 

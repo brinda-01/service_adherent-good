@@ -1,17 +1,17 @@
 package com.example.service_adherent.service.adherent;
 
 import com.example.service_adherent.graph_domain.nodes.Adherent;
-import com.example.service_adherent.graph_domain.nodes.Arbre;
+
 import com.example.service_adherent.graph_domain.nodes.Noeud;
 import com.example.service_adherent.graph_domain.nodes_repositories.AdherentRepository;
 import com.example.service_adherent.graph_domain.nodes_repositories.NoeudRepository;
 import com.example.service_adherent.mapper.Dtos.AdherentDto;
 import com.example.service_adherent.mapper.MapStructMapper;
-import lombok.NonNull;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
-import org.springframework.data.domain.Pageable;
+
 import org.springframework.data.domain.Sort;
 import org.springframework.stereotype.Service;
 
@@ -25,9 +25,10 @@ public class AdherentServiceImpl implements AdherentService{
     private final AdherentRepository adherentRepository;
 
     @Override
-    public void addAdherent(AdherentDto adherentDto) {
+    public String addAdherent(AdherentDto adherentDto) {
 
         Noeud noeud = noeudRepository.findByIdNoeud(adherentDto.getIdNoeud());
+
 
         noeud.setAdherent(adherentRepository.
                                     save(mapper.
@@ -35,20 +36,35 @@ public class AdherentServiceImpl implements AdherentService{
                                     )
         );
 
-        noeudRepository.save(noeud);
+        String parrain = noeudRepository.save(noeud).getPere();
 
+        //cas ou le parrain est la racine dans ce cas l'on retorune le parrain
+        if (noeudRepository.findByIdNoeud(parrain).getPere().isEmpty()){
 
+            return parrain;
+        }
+
+        //cas ou le parrain a effectivement un encentre alors on retourne ledit encentre
+        return noeudRepository.findByIdNoeud(parrain).getPere();
 
     }
+
+    /**
+     * fonction permettant de chercher un adherent a partir de son compte
+     */
 
     @Override
     public Adherent searchAdherent(String compte) {
         if (compte.isEmpty()){
+
             return null;
         }
+
         return adherentRepository.findByCompte(compte);
-        //return null;
     }
+
+
+
 
     @Override
     public Page<Adherent> pagesAdherent(Map<String, String> filter, int numPage, int taille) {
