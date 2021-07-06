@@ -48,6 +48,9 @@ public class NoeudServiceImpl implements NoeudService{
             case STARTER:
                 if (parrain.getBonusP() < 60){
                     parrain.setBonusP(parrain.getBonusP()+30);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                    // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -57,6 +60,9 @@ public class NoeudServiceImpl implements NoeudService{
             case START:
                 if (parrain.getBonusP() < 120){
                     parrain.setBonusP(parrain.getBonusP()+60);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                     //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -67,6 +73,9 @@ public class NoeudServiceImpl implements NoeudService{
             case BLUE:
                 if (parrain.getBonusP() < 240){
                     parrain.setBonusP(parrain.getBonusP()+120);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                     //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -76,6 +85,9 @@ public class NoeudServiceImpl implements NoeudService{
             case LEADER:
                 if (parrain.getBonusP() <480){
                     parrain.setBonusP(parrain.getBonusP()+240);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                    return noeudRepository.save(parrain).getPere();
                    // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -86,6 +98,9 @@ public class NoeudServiceImpl implements NoeudService{
             case COACH:
                 if (parrain.getBonusP() < 960){
                     parrain.setBonusP(parrain.getBonusP()+480);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                    // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -95,6 +110,9 @@ public class NoeudServiceImpl implements NoeudService{
             case PLATINIUM:
                 if (parrain.getBonusP() < 1920){
                     parrain.setBonusP(parrain.getBonusP()+960);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                     //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
 
@@ -104,6 +122,9 @@ public class NoeudServiceImpl implements NoeudService{
             case DIAMOND:
                 if (parrain.getBonusP() <3840){
                     parrain.setBonusP(parrain.getBonusP()+1920);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                 }
                 break;
@@ -111,6 +132,9 @@ public class NoeudServiceImpl implements NoeudService{
             case SUPER_DIAMOND:
                 if (parrain.getBonusP() <7680){
                     parrain.setBonusP(parrain.getBonusP()+3840);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
                 }
                 break;
@@ -118,6 +142,9 @@ public class NoeudServiceImpl implements NoeudService{
             case BOSS:
                 if (parrain.getBonusP() <15360){
                     parrain.setBonusP(parrain.getBonusP()+7680);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                      return noeudRepository.save(parrain).getPere();
                     //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
                 }
@@ -126,6 +153,9 @@ public class NoeudServiceImpl implements NoeudService{
             case SUPER_BOSS:
                 if (parrain.getBonusP() <30720){
                     parrain.setBonusP(parrain.getBonusP()+15360);
+                    if (parrain.getGauche() !=null && parrain.getDroit() != null){
+                        parrain.setFull(true);
+                    }
                     return noeudRepository.save(parrain).getPere();
 
                 }break;

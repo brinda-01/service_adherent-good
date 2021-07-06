@@ -66,6 +66,7 @@ public class ProspectServiceImpl implements ProspectService {
                 //definition du fils droit
                 pere.setDroit(noeudRepository.save(fileul));
                 //mise a jour du pere
+                pere.setFull(true);
                 noeudRepository.save(pere);
 
                 //sauvegarde du token
