@@ -3,6 +3,7 @@ package com.example.service_adherent.graph_domain.nodes_repositories;
 
 import com.example.service_adherent.graph_domain.nodes.Noeud;
 import com.example.service_adherent.service.token.TokenRepository;
+import com.fasterxml.jackson.databind.util.JSONPObject;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.stereotype.Component;
 
@@ -28,8 +29,7 @@ public class DbSeeder implements CommandLineRunner {
     @Override
     public void run(String... args) throws Exception {
 
-        System.out.println(noeudRepository.findByIdNoeud("490c0b82-9fa7-4780-ab0b-bbfff75b1386"));
-
+       // System.out.println(noeudRepository.findByIdNoeud("490c0b82-9fa7-4780-ab0b-bbfff75b1386"));
 
 
 

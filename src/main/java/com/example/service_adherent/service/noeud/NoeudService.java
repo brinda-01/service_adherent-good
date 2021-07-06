@@ -6,8 +6,10 @@ public interface NoeudService {
 
     Noeud noeudLevel1(String compte);
 
+    Noeud actifNodeInTree(String compte);
 
-    void reverserBonusParrainnage(String noeud);
+
+    String  reverserBonusParrainnage(String noeud);
 
     Noeud reverserBonusMat(String encetre);
 }

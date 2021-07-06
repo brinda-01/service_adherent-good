@@ -36,16 +36,17 @@ public class AdherentServiceImpl implements AdherentService{
                                     )
         );
 
-        String parrain = noeudRepository.save(noeud).getPere();
 
-        //cas ou le parrain est la racine dans ce cas l'on retorune le parrain
+        return noeudRepository.save(noeud).getPere();
+
+       /* //cas ou le parrain est la racine dans ce cas l'on retorune le parrain
         if (noeudRepository.findByIdNoeud(parrain).getPere().isEmpty()){
 
             return parrain;
         }
 
         //cas ou le parrain a effectivement un encentre alors on retourne ledit encentre
-        return noeudRepository.findByIdNoeud(parrain).getPere();
+        return noeudRepository.findByIdNoeud(parrain).getPere();*/
 
     }
 

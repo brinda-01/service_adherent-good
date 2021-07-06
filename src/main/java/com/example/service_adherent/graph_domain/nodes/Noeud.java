@@ -23,6 +23,10 @@ public class Noeud {
 
     private String pere;
 
+    private String frere;
+
+    private boolean Full;
+
     @Relationship(value = "se_situe",direction = Relationship.Direction.OUTGOING)
     private Arbre arbre ;
 

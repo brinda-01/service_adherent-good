@@ -1,13 +1,11 @@
 package com.example.service_adherent.controllers;
 
+import com.example.service_adherent.graph_domain.nodes.Noeud;
 import com.example.service_adherent.mapper.Dtos.AdherentDto;
 import com.example.service_adherent.service.adherent.AdherentService;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequestMapping("/adherent")
@@ -22,4 +20,6 @@ public class AdherentRestController {
         adherentService.addAdherent(adherentDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
+
+
 }

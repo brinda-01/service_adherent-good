@@ -4,7 +4,7 @@ import com.example.service_adherent.graph_domain.nodes.Noeud;
 import com.example.service_adherent.graph_domain.nodes_repositories.AdherentRepository;
 import com.example.service_adherent.graph_domain.nodes_repositories.ArbreRepository;
 import com.example.service_adherent.graph_domain.nodes_repositories.NoeudRepository;
-import com.example.service_adherent.service.feignClient.CompteServiceClient;
+
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 
@@ -16,7 +16,7 @@ public class NoeudServiceImpl implements NoeudService{
     private final NoeudRepository noeudRepository;
     private final ArbreRepository arbreRepository;
     private final AdherentRepository adherentRepository;
-    private final CompteServiceClient compteServiceClient;
+    //private final CompteServiceClient compteServiceClient;
 
     /**
      * fonction qui renvoie un adherent dans l'arbre du niveau
@@ -31,10 +31,14 @@ public class NoeudServiceImpl implements NoeudService{
                 arbreRepository.findByNiveau(1));
     }
 
+    @Override
+    public Noeud actifNodeInTree(String compte) {
+        return noeudRepository.findByAdherentAndActifIsTrue(adherentRepository.findByCompte(compte));
+    }
 
 
     @Override
-    public void reverserBonusParrainnage(String noeud) {
+    public String reverserBonusParrainnage(String noeud) {
         Noeud parrain = noeudRepository.findByIdNoeud(noeud);
 
         switch (parrain.getArbre().getNom()){
@@ -42,16 +46,18 @@ public class NoeudServiceImpl implements NoeudService{
             case STARTER:
                 if (parrain.getBonusP() < 60){
                     parrain.setBonusP(parrain.getBonusP()+30);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+                   // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
                 break;
 
             case START:
                 if (parrain.getBonusP() < 120){
                     parrain.setBonusP(parrain.getBonusP()+60);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+                    //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
 
                 break;
@@ -59,16 +65,18 @@ public class NoeudServiceImpl implements NoeudService{
             case BLUE:
                 if (parrain.getBonusP() < 240){
                     parrain.setBonusP(parrain.getBonusP()+120);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+                    //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
                 break;
 
             case LEADER:
                 if (parrain.getBonusP() <480){
                     parrain.setBonusP(parrain.getBonusP()+240);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                   return noeudRepository.save(parrain).getPere();
+                   // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
                 break;
 
@@ -76,53 +84,54 @@ public class NoeudServiceImpl implements NoeudService{
             case COACH:
                 if (parrain.getBonusP() < 960){
                     parrain.setBonusP(parrain.getBonusP()+480);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+                   // compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
                 break;
 
             case PLATINIUM:
                 if (parrain.getBonusP() < 1920){
                     parrain.setBonusP(parrain.getBonusP()+960);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+                    //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+
                 }
                 break;
 
             case DIAMOND:
                 if (parrain.getBonusP() <3840){
                     parrain.setBonusP(parrain.getBonusP()+1920);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
                 }
                 break;
 
             case SUPER_DIAMOND:
                 if (parrain.getBonusP() <7680){
                     parrain.setBonusP(parrain.getBonusP()+3840);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
                 }
                 break;
 
             case BOSS:
                 if (parrain.getBonusP() <15360){
                     parrain.setBonusP(parrain.getBonusP()+7680);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                     return noeudRepository.save(parrain).getPere();
+                    //compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
                 }
                 break;
 
             case SUPER_BOSS:
                 if (parrain.getBonusP() <30720){
                     parrain.setBonusP(parrain.getBonusP()+15360);
-                    Noeud compte =noeudRepository.save(parrain);
-                    compteServiceClient.updateSolde(compte.getAdherent().getCompte(),compte.getBonusP());
+                    return noeudRepository.save(parrain).getPere();
+
                 }break;
 
             default:
-        }
 
+        }
+        return null;
     }
 
     @Override

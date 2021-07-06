@@ -18,7 +18,7 @@ public interface NoeudRepository extends Neo4jRepository<Noeud,String> {
 
         List<Noeud> findByPere(String pere);
 
-        Noeud findByArbreAndPereIsNull(Arbre a );
+
 
 
 
