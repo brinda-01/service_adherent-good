@@ -84,4 +84,9 @@ public class AdherentServiceImpl implements AdherentService{
     public Adherent updateAdherent(Adherent adherent) {
         return adherentRepository.save(adherent);
     }
+
+    @Override
+    public Adherent adherentById(String id) {
+        return adherentRepository.findByIdAdherent(id);
+    }
 }

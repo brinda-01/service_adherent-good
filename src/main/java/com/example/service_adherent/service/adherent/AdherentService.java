@@ -17,5 +17,7 @@ public interface AdherentService {
 
     Adherent updateAdherent(Adherent adherent);
 
+    Adherent adherentById(String id);
+
 
 }

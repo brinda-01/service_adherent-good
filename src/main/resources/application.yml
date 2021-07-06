@@ -13,7 +13,7 @@ spring:
       password: easylife
   data:
     neo4j:
-      database: dbtest
+      database: adherent
   mail:
     default-encoding: utf-8
     host: smtp.gmail.com

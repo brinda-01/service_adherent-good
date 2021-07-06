@@ -26,7 +26,7 @@ public class VerificationToken {
 
     private Date expirydate;
 
-    private Boolean valable;
+    private boolean valable;
 
 
 

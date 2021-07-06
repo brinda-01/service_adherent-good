@@ -28,7 +28,7 @@ public class ProspectRestController {
     public RedirectView tokenVerification(@RequestParam("sign") String sign){
         RedirectView redirectView = new RedirectView();
 
-        if( tokenService.findToken(sign).getValable() == false){
+        if(!tokenService.findToken(sign).isValable()){
 
             redirectView.setUrl("https://www.bing.com/");
         }

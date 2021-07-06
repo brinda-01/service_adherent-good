@@ -2,7 +2,7 @@ package com.example.service_adherent.service.noeud;
 
 import com.example.service_adherent.graph_domain.nodes.Noeud;
 import com.example.service_adherent.graph_domain.nodes_repositories.AdherentRepository;
-import com.example.service_adherent.graph_domain.nodes_repositories.ArbreRepository;
+
 import com.example.service_adherent.graph_domain.nodes_repositories.NoeudRepository;
 
 import lombok.RequiredArgsConstructor;
@@ -14,7 +14,7 @@ import java.util.List;
 @RequiredArgsConstructor
 public class NoeudServiceImpl implements NoeudService{
     private final NoeudRepository noeudRepository;
-    private final ArbreRepository arbreRepository;
+  //  private final ArbreRepository arbreRepository;
     private final AdherentRepository adherentRepository;
     //private final CompteServiceClient compteServiceClient;
 
@@ -25,15 +25,17 @@ public class NoeudServiceImpl implements NoeudService{
      */
 
     @Override
-    public Noeud noeudLevel1(String adherent) {
+    public Noeud noeudLevel1(String adherent, int arbre) {
 
-        return noeudRepository.findByAdherentAndArbre(adherentRepository.findByCompte(adherent),
-                arbreRepository.findByNiveau(1));
+        return noeudRepository.findByAdherent_CompteAndArbre_Niveau(
+                adherentRepository.findByCompte(adherent).getCompte(),arbre);
     }
 
     @Override
     public Noeud actifNodeInTree(String compte) {
-        return noeudRepository.findByAdherentAndActifIsTrue(adherentRepository.findByCompte(compte));
+        return noeudRepository.findByAdherent_CompteAndActifIsTrue(adherentRepository.
+                findByCompte(compte).getCompte());
+        //return null;
     }
 
 
@@ -140,7 +142,7 @@ public class NoeudServiceImpl implements NoeudService{
         Noeud grandPere = noeudRepository.findByIdNoeud(encetre);
         List<Noeud> descandants = noeudRepository.findByPere(encetre);
 
-        if (descandants.size() == 2 && grandPere.getActif().equals(true) &&
+        if (descandants.size() == 2 && grandPere.isActif() &&
                 ( (descandants.get(0).getGauche() !=null && descandants.get(0).getDroit() !=null) &&
                         (descandants.get(1).getGauche() != null && descandants.get(1).getDroit() !=null))){
 

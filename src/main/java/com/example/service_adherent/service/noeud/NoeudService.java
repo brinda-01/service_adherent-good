@@ -4,7 +4,7 @@ import com.example.service_adherent.graph_domain.nodes.Noeud;
 
 public interface NoeudService {
 
-    Noeud noeudLevel1(String compte);
+    Noeud noeudLevel1(String compte,int arbre);
 
     Noeud actifNodeInTree(String compte);
 

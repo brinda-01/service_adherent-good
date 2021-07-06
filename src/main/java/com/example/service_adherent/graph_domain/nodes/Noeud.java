@@ -1,6 +1,7 @@
 package com.example.service_adherent.graph_domain.nodes;
 
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import lombok.Data;
 import org.springframework.data.neo4j.core.schema.GeneratedValue;
 import org.springframework.data.neo4j.core.schema.Id;
@@ -30,10 +31,10 @@ public class Noeud {
     @Relationship(value = "se_situe",direction = Relationship.Direction.OUTGOING)
     private Arbre arbre ;
 
-    @Relationship(value = "represente",direction = Relationship.Direction.OUTGOING)
+    @Relationship(value = "represente",direction = Relationship.Direction.OUTGOING) @JsonIgnore
     private Adherent adherent;
 
-    private Boolean actif;
+    private boolean actif;
 
     private int bonusP=0;
 

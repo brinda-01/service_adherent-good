@@ -34,6 +34,8 @@ public class ProspectServiceImpl implements ProspectService {
 
         //le prospect a parrainer
         Noeud fileul = new Noeud();
+        fileul.setActif(true);
+        fileul.setFull(false);
 
         //le token qui permettant d'invalider le mail
         String token = UUID.randomUUID().toString();
