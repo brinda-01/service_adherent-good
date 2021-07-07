@@ -27,14 +27,17 @@ public class NoeudServiceImpl implements NoeudService{
     @Override
     public Noeud noeudLevel1(String adherent, int arbre) {
 
-        return noeudRepository.findByAdherent_CompteAndArbre_Niveau(
-                adherentRepository.findByCompte(adherent).getCompte(),arbre);
+        return noeudRepository.findByAdherent_IdAdherentAndArbre_Niveau(
+                adherentRepository.findByIdAdherent(adherent).getIdAdherent(),
+                arbre
+        );
     }
 
     @Override
-    public Noeud actifNodeInTree(String compte) {
-        return noeudRepository.findByAdherent_CompteAndActifIsTrue(adherentRepository.
-                findByCompte(compte).getCompte());
+    public Noeud actifNodeInTree(String idAdherent) {
+        return noeudRepository.findByAdherent_IdAdherentAndActifIsTrue(
+                adherentRepository.findByIdAdherent(idAdherent).getIdAdherent()
+        );
         //return null;
     }
 

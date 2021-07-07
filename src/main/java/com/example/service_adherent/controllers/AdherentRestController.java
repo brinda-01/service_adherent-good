@@ -19,6 +19,7 @@ public class AdherentRestController {
     public ResponseEntity creerAdherent (@RequestBody AdherentDto adherentDto){
         adherentService.addAdherent(adherentDto);
         return new ResponseEntity<>(HttpStatus.CREATED);
+
     }
 
 
