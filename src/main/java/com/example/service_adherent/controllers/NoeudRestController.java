@@ -20,7 +20,7 @@ public class NoeudRestController {
         return noeudService.actifNodeInTree(ref);
     }
 
-    @GetMapping("/level1Tree")
+    @GetMapping("/levelTree")
     public Noeud level1Tree(@RequestParam(name = "ref") String ref,
                             @RequestParam(name="arbre",defaultValue = "1") int arbre){
         return noeudService.noeudLevel1(ref,arbre);

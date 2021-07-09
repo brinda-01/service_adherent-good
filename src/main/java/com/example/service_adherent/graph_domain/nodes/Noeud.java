@@ -31,7 +31,7 @@ public class Noeud {
     @Relationship(value = "se_situe",direction = Relationship.Direction.OUTGOING) @JsonIgnore
     private Arbre arbre ;
 
-    @Relationship(value = "represente",direction = Relationship.Direction.OUTGOING) @JsonIgnore
+    @Relationship(value = "represente",direction = Relationship.Direction.OUTGOING)
     private Adherent adherent;
 
     private boolean actif;

@@ -9,6 +9,7 @@ import com.example.service_adherent.mapper.Dtos.AdherentDto;
 import com.example.service_adherent.mapper.MapStructMapper;
 
 import lombok.RequiredArgsConstructor;
+import org.apache.http.util.TextUtils;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
 
@@ -56,7 +57,7 @@ public class AdherentServiceImpl implements AdherentService{
 
     @Override
     public Adherent searchAdherent(String compte) {
-        if (compte.isEmpty()){
+        if (TextUtils.isEmpty(compte)){
 
             return null;
         }
