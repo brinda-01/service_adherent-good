@@ -19,9 +19,12 @@ public class ProspectRestController {
 
     @PostMapping("/mail-invitation")
     public ResponseEntity mailInvitation (@RequestBody ProspectEmailInvitationDto invitationDto){
-
-        adherentService.parrainerViaMail(invitationDto);
-        return new ResponseEntity(HttpStatus.OK);
+        if(invitationDto.getPere() != null){
+            adherentService.parrainerViaMail(invitationDto);
+            return new ResponseEntity(HttpStatus.OK);
+        }else{
+            return new ResponseEntity(HttpStatus.INTERNAL_SERVER_ERROR);
+        }
     }
 
     @GetMapping("/verification")
