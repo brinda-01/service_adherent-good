@@ -7,6 +7,8 @@ import com.example.service_adherent.graph_domain.nodes_repositories.NoeudReposit
 import com.example.service_adherent.service.feignClient.CompteServiceClient;
 import com.example.service_adherent.service.noeud.NoeudService;
 import lombok.RequiredArgsConstructor;
+import org.apache.http.util.TextUtils;
+
 import org.springframework.stereotype.Service;
 
 @Service
@@ -45,9 +47,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),100);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",200);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",200);
                            noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -59,12 +62,21 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),100);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",200);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",200);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),100);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",200);
+                   // noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
+
 
                 }
                 break;
@@ -90,9 +102,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),200);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",400);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",400);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -103,12 +116,19 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),200);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",400);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",400);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),200);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",400);
 
                 }
                 break;
@@ -125,6 +145,7 @@ public class ArbreServiceImpl implements ArbreService {
 
                     Noeud levelParain = positionInTree(arbre.getNiveau());
 
+
                     if (levelParain !=null){
                         if (levelParain.getGauche() == null){
 
@@ -134,9 +155,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),400);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",800);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",800);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                         }
@@ -146,12 +168,19 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),400);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",800);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",800);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),400);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",800);
                 }
                 break;
 
@@ -177,9 +206,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),800);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",1600);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",1600);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -190,12 +220,19 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),800);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",1600);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",1600);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),800);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",1600);
                 }
                 break;
 
@@ -220,9 +257,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),1600);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",3200);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",3200);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -233,12 +271,19 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),1600);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",3200);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",3200);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),1600);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",3200);
                 }
                 break;
 
@@ -263,9 +308,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),3200);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",6400);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",6400);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -276,12 +322,19 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),3200);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",6400);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",6400);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),3200);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",6400);
                 }
                 break;
 
@@ -306,9 +359,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),6400);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",12800);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",12800);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -319,13 +373,22 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),6400);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",12800);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",12800);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),6400);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",12800);
+
                 }
+                break;
             case SUPER_DIAMOND:
                 if ((noeud.getBonusP() + noeud.getBonusMat()) == 38400) {
 
@@ -347,9 +410,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),12800);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",25600);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",25600);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -360,13 +424,21 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),12800);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",25600);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",25600);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),12800);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",25600);
                 }
+                break;
             case BOSS:
                 if ((noeud.getBonusP() + noeud.getBonusMat()) == 76800) {
 
@@ -388,9 +460,10 @@ public class ArbreServiceImpl implements ArbreService {
                             noeud.setActif(false);
                             noeudRepository.save(noeud);
                             levelParain.setGauche(noeudRepository.findByIdNoeud(last));
+                            arbreRepository.save(arbre);
 
                             compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),25600);
-                            compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",51200);
+                            compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",51200);
                             noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
 
@@ -401,13 +474,21 @@ public class ArbreServiceImpl implements ArbreService {
                         noeud.setActif(false);
                         noeudRepository.save(noeud);
                         levelParain.setDroit(noeudRepository.findByIdNoeud(last));
+                        arbreRepository.save(arbre);
 
                         compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),25600);
-                        compteServiceClient.updateSolde("c90cb225-71bf-4b0a-9d16-bd44a76e16ca",51200);
+                        compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",51200);
                         noeudService.reverserBonusParrainnage( noeudRepository.save(levelParain).getIdNoeud());
 
                     }
+                    arbre.setLastInserted(noeudRepository.save(next).getIdNoeud());
+                    noeud.setActif(false);
+                    noeudRepository.save(noeud);
+                    arbreRepository.save(arbre);
+                    compteServiceClient.updateSolde(noeud.getAdherent().getCompte(),25600);
+                    compteServiceClient.updateSolde("e0174d50-3fa1-448e-972b-0c7c0c4a3ff0",51200);
                 }
+                break;
             case SUPER_BOSS:
 
                 // code a ecrire si l'on est deja au niveau 10
@@ -434,8 +515,8 @@ public class ArbreServiceImpl implements ArbreService {
          * CAS No1 : le champ lastInserted est vide: l'arbre est vide
          * alors on return null
          */
-
-        if (tree.getLastInserted().isEmpty()){
+        System.out.println(tree);
+        if (TextUtils.isEmpty(tree.getLastInserted())){
              return null;
         }
 
@@ -446,7 +527,7 @@ public class ArbreServiceImpl implements ArbreService {
         /*Cas No2-1 le dernier a entrer dans larbre n'a pas de pere : il est la racine
                 Dans ce cas on retourne last
         */
-            if (last.getPere().isEmpty()){
+            if (TextUtils.isEmpty(last.getPere())){
                 return last;
             }
             Noeud pere = noeudRepository.findByIdNoeud(last.getPere());
@@ -454,7 +535,7 @@ public class ArbreServiceImpl implements ArbreService {
                 return pere;
             }
             if (pere.isFull()){
-                if (pere.getFrere().isEmpty()){
+                if (TextUtils.isEmpty(pere.getFrere())){
                     return pere.getGauche();
                 }
                 Noeud frere = noeudRepository.findByIdNoeud(pere.getFrere());

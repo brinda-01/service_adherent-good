@@ -25,7 +25,7 @@ public class AdherentRestController {
         return new ResponseEntity<>(HttpStatus.CREATED);
     }
 
-    @GetMapping("/adherentById/{id}")
+    @GetMapping("/adgerentById/{id}")
     public Adherent searchById(@PathVariable String id){
         return adherentService.adherentById(id);
 
@@ -45,6 +45,7 @@ public class AdherentRestController {
 
     @GetMapping("/updateAdherent")
     public Adherent updateCompte(@RequestBody Adherent adherent){
+
         return adherentService.updateAdherent(adherent);
     }
 
